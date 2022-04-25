@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.activityViewModels
+import coil.load
 import com.example.pokemon.MyApplication
 import com.example.pokemon.R
 import com.example.pokemon.databinding.FragmentPokeDetailBinding
@@ -33,9 +35,11 @@ class PokeDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.pokemon.observe(viewLifecycleOwner){
-            binding.pokeNumber.text = it.name
-            binding.pokeHeight.text = it.height.toString()
-            binding.pokeWeight.text = it.weight.toString()
+            binding.pokeNumber.text = getString(R.string.poke_number, it.id.toString(), it.name)
+            binding.pokeHeight.text = getString(R.string.poke_height, it.height)
+            binding.pokeWeight.text = getString(R.string.poke_weight, it.weight)
+            val imageUrl = it.sprites.frontDefault.toUri().buildUpon().scheme("https").build()
+            binding.pokeImage.load(imageUrl)
         }
 
         binding.searchButton.setOnClickListener {
