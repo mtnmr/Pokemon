@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/pokeDetailFragment">
+
+    <fragment
+        android:id="@+id/pokeDetailFragment"
+        android:name="com.example.pokemon.ui.PokeDetailFragment"
+        android:label="fragment_poke_detail"
+        tools:layout="@layout/fragment_poke_detail" />
+</navigation>

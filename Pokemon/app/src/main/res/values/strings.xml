@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Pokemon</string>
+
+    <string name="search_hint">Number or EnglishName</string>
+    <string name="poke_number">No.%1$d  %2$s</string>
+    <string name="sample_number">No.1 pokemon</string>
+    <string name="poke_weight">Weight :</string>
+    <string name="poke_height">Height :</string>
 </resources>
