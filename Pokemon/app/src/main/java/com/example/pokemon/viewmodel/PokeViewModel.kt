@@ -1,5 +1,6 @@
 package com.example.pokemon.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.pokemon.api.PokeRepository
 import com.example.pokemon.model.Pokemon
@@ -16,7 +17,7 @@ class PokeViewModel(private val repository: PokeRepository):ViewModel() {
             try{
                 _pokemon.value = repository.getPoke(id)
             }catch (e:Exception){
-
+                Log.d("Poke", e.toString())
             }
         }
     }

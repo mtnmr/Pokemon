@@ -35,6 +35,7 @@ class PokeDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.pokemon.observe(viewLifecycleOwner){
+//            binding.pokeNumber.text = it.toString()
             binding.pokeNumber.text = getString(R.string.poke_number, it.id.toString(), it.name)
             binding.pokeHeight.text = getString(R.string.poke_height, it.height)
             binding.pokeWeight.text = getString(R.string.poke_weight, it.weight)

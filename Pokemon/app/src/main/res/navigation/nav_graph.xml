@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/pokeDetailFragment"
         android:name="com.example.pokemon.ui.PokeDetailFragment"
-        android:label="fragment_poke_detail"
+        android:label="PokemonSearch"
         tools:layout="@layout/fragment_poke_detail" />
 </navigation>
