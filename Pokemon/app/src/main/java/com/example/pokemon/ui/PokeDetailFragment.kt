@@ -1,10 +1,14 @@
 package com.example.pokemon.ui
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.net.toUri
 import androidx.fragment.app.activityViewModels
 import coil.load
@@ -45,10 +49,34 @@ class PokeDetailFragment : Fragment() {
         }
 
         binding.searchButton.setOnClickListener {
+            hideKeyboard(it)
             val searchId = binding.searchPoke.text.toString()
             viewModel.getPoke(searchId)
         }
 
+        binding.backButton.setOnClickListener {
+            val id = viewModel.pokemon.value?.id?.minus(1)
+            viewModel.getPoke(id.toString())
+        }
+
+        binding.nextButton.setOnClickListener {
+            val id = viewModel.pokemon.value?.id?.plus(1)
+            viewModel.getPoke(id.toString())
+        }
+
+        //編集ボタンからフォーカスが外れた時にキーボード非表示
+//        binding.searchPoke.setOnFocusChangeListener { view, hasFocus ->
+//            if (!hasFocus){
+//                val inputMethodManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE)
+//                        as InputMethodManager
+//                inputMethodManager.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+//            }
+//        }
+    }
+
+    fun hideKeyboard(view: View){
+        val inputMethodManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken,InputMethodManager.HIDE_NOT_ALWAYS)
     }
 
     override fun onDestroyView() {

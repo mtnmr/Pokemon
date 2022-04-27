@@ -87,5 +87,23 @@
         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         tools:text="@string/poke_type"/>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/next_button"
+        android:layout_marginBottom="40dp"
+        android:text="@string/back_button_text"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/back_button"
+        app:layout_constraintStart_toEndOf="@+id/back_button"
+        android:text="@string/next_button_text"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
