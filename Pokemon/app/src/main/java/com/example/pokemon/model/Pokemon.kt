@@ -24,11 +24,24 @@ data class Pokemon (
         }
         return typeList.joinToString(separator = " , ")
     }
+
+    fun getImage(): String{
+        return sprites.other.officialArtwork.frontDefault
+    }
 }
 
 data class  PokeSprite(
     @Json(name = "front_default") val frontDefault : String,
-    @Json(name = "back_default") val backDefault : String
+    @Json(name = "back_default") val backDefault : String,
+    val other : SpritesOther
+)
+
+data class SpritesOther(
+    @Json(name = "official-artwork") val officialArtwork : PokeImage
+)
+
+data class PokeImage(
+    @Json(name = "front_default") val frontDefault: String
 )
 
 data class PokeType(

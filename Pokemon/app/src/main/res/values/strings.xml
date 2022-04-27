@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Pokemon</string>
 
-    <string name="search_hint">Number or EnglishName</string>
+    <string name="search_hint">Number(1~898) or EnglishName</string>
     <string name="poke_number">No.%1$s  %2$s</string>
     <string name="sample_number">No.1 pokemon</string>
     <string name="poke_weight">Weight : %1$s kg</string>

@@ -43,7 +43,7 @@ class PokeDetailFragment : Fragment() {
             binding.pokeNumber.text = getString(R.string.poke_number, it.id.toString(), it.name)
             binding.pokeHeight.text = getString(R.string.poke_height, it.getHeight())
             binding.pokeWeight.text = getString(R.string.poke_weight, it.getWeight())
-            val imageUrl = it.sprites.frontDefault.toUri().buildUpon().scheme("https").build()
+            val imageUrl = it.getImage().toUri().buildUpon().scheme("https").build()
             binding.pokeImage.load(imageUrl)
             binding.pokeType.text = getString(R.string.poke_type, it.getPokeType())
         }
@@ -74,7 +74,7 @@ class PokeDetailFragment : Fragment() {
 //        }
     }
 
-    fun hideKeyboard(view: View){
+    private fun hideKeyboard(view: View){
         val inputMethodManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken,InputMethodManager.HIDE_NOT_ALWAYS)
     }
