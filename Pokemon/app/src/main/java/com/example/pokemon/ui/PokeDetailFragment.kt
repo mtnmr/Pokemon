@@ -37,10 +37,11 @@ class PokeDetailFragment : Fragment() {
         viewModel.pokemon.observe(viewLifecycleOwner){
 //            binding.pokeNumber.text = it.toString()
             binding.pokeNumber.text = getString(R.string.poke_number, it.id.toString(), it.name)
-            binding.pokeHeight.text = getString(R.string.poke_height, it.height)
-            binding.pokeWeight.text = getString(R.string.poke_weight, it.weight)
+            binding.pokeHeight.text = getString(R.string.poke_height, it.getHeight())
+            binding.pokeWeight.text = getString(R.string.poke_weight, it.getWeight())
             val imageUrl = it.sprites.frontDefault.toUri().buildUpon().scheme("https").build()
             binding.pokeImage.load(imageUrl)
+            binding.pokeType.text = getString(R.string.poke_type, it.getPokeType())
         }
 
         binding.searchButton.setOnClickListener {
