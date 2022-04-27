@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.net.toUri
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.example.pokemon.MyApplication
 import com.example.pokemon.R
@@ -46,6 +47,17 @@ class PokeDetailFragment : Fragment() {
             val imageUrl = it.getImage().toUri().buildUpon().scheme("https").build()
             binding.pokeImage.load(imageUrl)
             binding.pokeType.text = getString(R.string.poke_type, it.getPokeType())
+
+            if (viewModel.pokemon.value?.sprites?.frontFemale != null){
+                binding.genderButton.visibility = View.VISIBLE
+            }else{
+                binding.genderButton.visibility = View.INVISIBLE
+            }
+
+            if (viewModel.pokemon.value != null){
+                binding.backButton.visibility = View.VISIBLE
+                binding.nextButton.visibility = View.VISIBLE
+            }
         }
 
         binding.searchButton.setOnClickListener {
@@ -62,6 +74,10 @@ class PokeDetailFragment : Fragment() {
         binding.nextButton.setOnClickListener {
             val id = viewModel.pokemon.value?.id?.plus(1)
             viewModel.getPoke(id.toString())
+        }
+
+        binding.genderButton.setOnClickListener {
+            findNavController().navigate(R.id.action_pokeDetailFragment_to_genderImageFragment)
         }
 
         //編集ボタンからフォーカスが外れた時にキーボード非表示

@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17844202898550723" />
+        <entry key="app/src/main/res/layout/fragment_gender_image.xml" value="0.17844202898550723" />
         <entry key="app/src/main/res/layout/fragment_poke_detail.xml" value="0.13654618473895583" />
       </map>
     </option>

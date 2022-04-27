@@ -9,4 +9,7 @@
     <string name="poke_type">Type : %1$s</string>
     <string name="back_button_text">Back</string>
     <string name="next_button_text">Next</string>
+    <string name="gender_button_text">♂ ♀</string>
+    <string name="gender_front">Front</string>
+    <string name="gender_back">Back</string>
 </resources>
