@@ -77,7 +77,8 @@ class PokeDetailFragment : Fragment() {
         }
 
         binding.genderButton.setOnClickListener {
-            findNavController().navigate(R.id.action_pokeDetailFragment_to_genderImageFragment)
+            val action = PokeDetailFragmentDirections.actionPokeDetailFragmentToGenderImageFragment()
+            findNavController().navigate(action)
         }
 
         //編集ボタンからフォーカスが外れた時にキーボード非表示
