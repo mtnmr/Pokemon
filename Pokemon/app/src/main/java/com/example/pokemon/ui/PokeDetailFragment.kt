@@ -17,16 +17,20 @@ import com.example.pokemon.MyApplication
 import com.example.pokemon.R
 import com.example.pokemon.databinding.FragmentPokeDetailBinding
 import com.example.pokemon.viewmodel.PokeViewModel
-import com.example.pokemon.viewmodel.PokeViewModelFactory
+//import com.example.pokemon.viewmodel.PokeViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class PokeDetailFragment : Fragment() {
 
     private var _binding:FragmentPokeDetailBinding ?= null
     private val binding get() = _binding!!
 
-    private val viewModel:PokeViewModel by activityViewModels{
-        PokeViewModelFactory((requireActivity().application as MyApplication).repository)
-    }
+//    private val viewModel:PokeViewModel by activityViewModels{
+//        PokeViewModelFactory((requireActivity().application as MyApplication).repository)
+//    }
+    private val viewModel: PokeViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

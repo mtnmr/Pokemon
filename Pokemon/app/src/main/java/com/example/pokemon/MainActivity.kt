@@ -12,7 +12,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -36,15 +38,15 @@ class MainActivity : AppCompatActivity() {
 
 
     //背景タップでキーボード非表示
-//    override fun onTouchEvent(event: MotionEvent?): Boolean {
-//
-//        val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//        val layout = findViewById<ConstraintLayout>(R.id.constraint_layout)
-//        inputManager.hideSoftInputFromWindow(
-//            layout.windowToken,
-//            InputMethodManager.HIDE_NOT_ALWAYS
-//        )
-//
-//        return false
-//    }
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+
+        val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val layout = findViewById<ConstraintLayout>(R.id.constraint_layout)
+        inputManager.hideSoftInputFromWindow(
+            layout.windowToken,
+            InputMethodManager.HIDE_NOT_ALWAYS
+        )
+
+        return false
+    }
 }

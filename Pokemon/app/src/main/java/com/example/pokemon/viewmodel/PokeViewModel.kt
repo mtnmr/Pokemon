@@ -4,10 +4,13 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.example.pokemon.api.PokeRepository
 import com.example.pokemon.model.Pokemon
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.lang.Exception
+import javax.inject.Inject
 
-class PokeViewModel(private val repository: PokeRepository):ViewModel() {
+@HiltViewModel
+class PokeViewModel @Inject constructor(private val repository: PokeRepository):ViewModel() {
 
     private val _pokemon = MutableLiveData<Pokemon>()
     val pokemon:LiveData<Pokemon> = _pokemon
@@ -23,12 +26,12 @@ class PokeViewModel(private val repository: PokeRepository):ViewModel() {
     }
 }
 
-class PokeViewModelFactory(private val repository: PokeRepository) : ViewModelProvider.Factory{
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(PokeViewModel::class.java)){
-            @Suppress("UNCHECKED_CAST")
-            return PokeViewModel(repository) as T
-        }
-        throw (IllegalArgumentException("Unknown ViewModel Class"))
-    }
-}
+//class PokeViewModelFactory(private val repository: PokeRepository) : ViewModelProvider.Factory{
+//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+//        if(modelClass.isAssignableFrom(PokeViewModel::class.java)){
+//            @Suppress("UNCHECKED_CAST")
+//            return PokeViewModel(repository) as T
+//        }
+//        throw (IllegalArgumentException("Unknown ViewModel Class"))
+//    }
+//}
