@@ -2,7 +2,7 @@ package com.example.pokemon.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.pokemon.api.PokeRepository
+import com.example.pokemon.api.IPokeRepository
 import com.example.pokemon.model.Pokemon
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -10,7 +10,7 @@ import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
-class PokeViewModel @Inject constructor(private val repository: PokeRepository):ViewModel() {
+class PokeViewModel @Inject constructor(private val repository: IPokeRepository):ViewModel() {
 
     private val _pokemon = MutableLiveData<Pokemon>()
     val pokemon:LiveData<Pokemon> = _pokemon

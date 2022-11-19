@@ -5,9 +5,13 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class PokeRepository @Inject constructor(private val pokeApiService: PokeApiService) {
+class PokeRepository @Inject constructor():IPokeRepository {
 
-    suspend fun getPoke(id : String) : Pokemon =
+    @Inject
+    lateinit var pokeApiService: PokeApiService
+
+
+    override suspend fun getPoke(id : String) : Pokemon =
         pokeApiService.getPokemon(id)
 
 
